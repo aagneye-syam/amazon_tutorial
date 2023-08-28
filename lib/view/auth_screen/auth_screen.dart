@@ -18,6 +18,7 @@ class _AuthScreenState extends State<AuthScreen> {
     final width = MediaQuery.of(context).size.width;
     final textTheme = Theme.of(context).textTheme;
     return Scaffold(
+      backgroundColor: white,
       appBar: AppBar(
         backgroundColor: Colors.white,
         centerTitle: true,
@@ -51,6 +52,7 @@ class _AuthScreenState extends State<AuthScreen> {
                     Container(
                       height: height * 0.06,
                       width: width,
+                      color: greyShade1,
                       padding: EdgeInsets.symmetric(horizontal: width * 0.03),
                       child: Row(
                         children: [
@@ -71,12 +73,12 @@ class _AuthScreenState extends State<AuthScreen> {
                             text: TextSpan(
                               children: [
                                 TextSpan(
-                                  text: 'Create acccount.',
+                                  text: 'Create account.',
                                   style: textTheme.bodyMedium!
                                       .copyWith(fontWeight: FontWeight.bold),
                                 ),
                                 TextSpan(
-                                  text: 'New to Amazon?',
+                                  text: ' New to Amazon?',
                                   style: textTheme.bodyMedium,
                                 )
                               ],
