@@ -53,13 +53,15 @@ class _AuthScreenState extends State<AuthScreen> {
                       child: Row(
                         children: [
                           Container(
-                            height: height * 0.03,
-                            width: height * 0.03,
-                            decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                border: Border.all(color: grey),
-                                color: white),
-                          )
+                              height: height * 0.03,
+                              width: height * 0.03,
+                              decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  border: Border.all(color: grey),
+                                  color: white),
+                              child: Icon(Icons.circle,
+                                  size: height * 0.017,
+                                  color: Colors.deepOrangeAccent))
                         ],
                       ),
                     )
