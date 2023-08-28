@@ -1,3 +1,5 @@
+import 'package:amazon/constants/common_function.dart';
+import 'package:amazon/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class AuthScreen extends StatefulWidget {
@@ -36,6 +38,34 @@ class _AuthScreenState extends State<AuthScreen> {
                 style: textTheme.displaySmall!
                     .copyWith(fontWeight: FontWeight.w600),
               ),
+              commonFuctions.blankSpace(height * 0.02, width * 0),
+              Container(
+                width: width,
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey.shade300),
+                ),
+                child: Column(
+                  children: [
+                    Container(
+                      height: height * 0.06,
+                      width: width,
+                      padding: EdgeInsets.symmetric(horizontal: width * 0.03),
+                      child: Row(
+                        children: [
+                          Container(
+                            height: height * 0.03,
+                            width: height * 0.03,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                border: Border.all(color: grey),
+                                color: white),
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              )
             ],
           ),
         ),
