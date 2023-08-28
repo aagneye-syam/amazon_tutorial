@@ -10,6 +10,8 @@ class AuthScreen extends StatefulWidget {
 }
 
 class _AuthScreenState extends State<AuthScreen> {
+  bool inLogin = true;
+
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -59,9 +61,11 @@ class _AuthScreenState extends State<AuthScreen> {
                                   shape: BoxShape.circle,
                                   border: Border.all(color: grey),
                                   color: white),
+                              alignment: Alignment.center,
                               child: Icon(Icons.circle,
                                   size: height * 0.017,
-                                  color: Colors.deepOrangeAccent))
+                                  color:
+                                      !inLogin ? transparent : secondaryColor))
                         ],
                       ),
                     )
