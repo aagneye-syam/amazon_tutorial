@@ -41,18 +41,25 @@ class _AuthScreenState extends State<AuthScreen> {
                 style: textTheme.displaySmall!
                     .copyWith(fontWeight: FontWeight.w600),
               ),
-              commonFuctions.blankSpace(height * 0.02, width * 0),
+              commonFuctions.blankSpace(
+                height * 0.02,
+                width * 0,
+              ),
               Container(
                 width: width,
                 decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey.shade300),
+                  border: Border.all(
+                    color: greyShade3,
+                  ),
                 ),
                 child: Column(
                   children: [
                     Container(
                       height: height * 0.06,
                       width: width,
-                      color: greyShade1,
+                      decoration: BoxDecoration(
+                          border: Border(bottom: BorderSide(color: greyShade3)),
+                          color: greyShade1),
                       padding: EdgeInsets.symmetric(horizontal: width * 0.03),
                       child: Row(
                         children: [
