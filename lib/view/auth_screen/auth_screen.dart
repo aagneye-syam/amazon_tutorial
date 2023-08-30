@@ -73,7 +73,7 @@ class _AuthScreenState extends State<AuthScreen> {
                             alignment: Alignment.center,
                             child: Icon(Icons.circle,
                                 size: height * 0.017,
-                                color: !inLogin ? transparent : secondaryColor),
+                                color: inLogin ? transparent : secondaryColor),
                           ),
                           commonFuctions.blankSpace(0, width * 0.02),
                           RichText(
@@ -93,6 +93,46 @@ class _AuthScreenState extends State<AuthScreen> {
                           ),
                         ],
                       ),
+                    ),
+                    Container(
+                      width: width,
+                      padding: EdgeInsets.symmetric(
+                          horizontal: width * 0.03, vertical: height * 0.01),
+                      child: Column(children: [
+                        Row(
+                          children: [
+                            Container(
+                              height: height * 0.03,
+                              width: height * 0.03,
+                              decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  border: Border.all(color: grey),
+                                  color: white),
+                              alignment: Alignment.center,
+                              child: Icon(Icons.circle,
+                                  size: height * 0.017,
+                                  color:
+                                      inLogin ? secondaryColor : transparent),
+                            ),
+                            commonFuctions.blankSpace(0, width * 0.02),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Sign in.',
+                                    style: textTheme.bodyMedium!
+                                        .copyWith(fontWeight: FontWeight.bold),
+                                  ),
+                                  TextSpan(
+                                    text: ' Already a customer?',
+                                    style: textTheme.bodyMedium,
+                                  )
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ]),
                     )
                   ],
                 ),
