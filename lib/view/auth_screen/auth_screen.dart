@@ -1,5 +1,6 @@
 import 'package:amazon/constants/common_function.dart';
 import 'package:amazon/utils/colors.dart';
+import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 
 class AuthScreen extends StatefulWidget {
@@ -11,12 +12,14 @@ class AuthScreen extends StatefulWidget {
 
 class _AuthScreenState extends State<AuthScreen> {
   bool inLogin = true;
+  String currentCountryCode = '+91';
 
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     final textTheme = Theme.of(context).textTheme;
+
     return Scaffold(
       backgroundColor: white,
       appBar: AppBar(
@@ -149,6 +152,44 @@ class _AuthScreenState extends State<AuthScreen> {
                             ),
                           ],
                         ),
+                        commonFuctions.blankSpace(
+                          height * 0.01,
+                          0,
+                        ),
+                        Row(
+                          children: [
+                            InkWell(
+                              onTap: () {
+                                showCountryPicker(
+                                    context: context,
+                                    onSelect: (val) {
+                                      setState(() {
+                                        currentCountryCode =
+                                            '+${val.phoneCode}';
+                                      });
+                                    });
+                              },
+                              child: Container(
+                                height: height * 0.06,
+                                width: width * 0.2,
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                  border: Border.all(color: grey),
+                                  color: greyShade1,
+                                  borderRadius: BorderRadius.circular(
+                                    5,
+                                  ),
+                                ),
+                                child: Text(
+                                  currentCountryCode,
+                                  style: textTheme.displayMedium!.copyWith(
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ),
+                            )
+                          ],
+                        )
                       ]),
                     )
                   ],
