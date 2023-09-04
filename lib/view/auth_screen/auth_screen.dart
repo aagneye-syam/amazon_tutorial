@@ -13,6 +13,7 @@ class AuthScreen extends StatefulWidget {
 class _AuthScreenState extends State<AuthScreen> {
   bool inLogin = true;
   String currentCountryCode = '+91';
+  TextEditingController mobileController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -157,6 +158,7 @@ class _AuthScreenState extends State<AuthScreen> {
                           0,
                         ),
                         Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             InkWell(
                               onTap: () {
@@ -184,6 +186,43 @@ class _AuthScreenState extends State<AuthScreen> {
                                   currentCountryCode,
                                   style: textTheme.displayMedium!.copyWith(
                                     fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: height * 0.06,
+                              width: width * 0.64,
+                              child: TextFormField(
+                                controller: mobileController,
+                                cursorColor: black,
+                                style: textTheme.displaySmall,
+                                keyboardType: TextInputType.number,
+                                decoration: InputDecoration(
+                                  hintText: 'Mobile number',
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(5),
+                                    borderSide: BorderSide(
+                                      color: grey,
+                                    ),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(5),
+                                    borderSide: const BorderSide(
+                                      color: secondaryColor,
+                                    ),
+                                  ),
+                                  disabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(5),
+                                    borderSide: BorderSide(
+                                      color: grey,
+                                    ),
+                                  ),
+                                  enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(5),
+                                    borderSide: BorderSide(
+                                      color: grey,
+                                    ),
                                   ),
                                 ),
                               ),
