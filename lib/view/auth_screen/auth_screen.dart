@@ -27,7 +27,7 @@ class _AuthScreenState extends State<AuthScreen> {
         backgroundColor: Colors.white,
         centerTitle: true,
         title: Image(
-          image: AssetImage('assets/images/amazon_logo.png'),
+          image: const AssetImage('assets/images/amazon_logo.png'),
           height: height * 0.04,
         ),
       ),
@@ -112,124 +112,137 @@ class _AuthScreenState extends State<AuthScreen> {
                         horizontal: width * 0.03,
                         vertical: height * 0.01,
                       ),
-                      child: Column(children: [
-                        Row(
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                setState(() {
-                                  inLogin = true;
-                                });
-                              },
-                              child: Container(
-                                height: height * 0.03,
-                                width: height * 0.03,
-                                decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    border: Border.all(color: grey),
-                                    color: white),
-                                alignment: Alignment.center,
-                                child: Icon(Icons.circle,
-                                    size: height * 0.017,
-                                    color:
-                                        inLogin ? secondaryColor : transparent),
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              InkWell(
+                                onTap: () {
+                                  setState(() {
+                                    inLogin = true;
+                                  });
+                                },
+                                child: Container(
+                                  height: height * 0.03,
+                                  width: height * 0.03,
+                                  decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      border: Border.all(color: grey),
+                                      color: white),
+                                  alignment: Alignment.center,
+                                  child: Icon(Icons.circle,
+                                      size: height * 0.017,
+                                      color: inLogin
+                                          ? secondaryColor
+                                          : transparent),
+                                ),
                               ),
-                            ),
-                            commonFuctions.blankSpace(0, width * 0.02),
-                            RichText(
-                              text: TextSpan(
-                                children: [
-                                  TextSpan(
-                                    text: 'Sign in.',
-                                    style: textTheme.bodyMedium!
-                                        .copyWith(fontWeight: FontWeight.bold),
-                                  ),
-                                  TextSpan(
-                                    text: ' Already a customer?',
-                                    style: textTheme.bodyMedium,
-                                  )
-                                ],
+                              commonFuctions.blankSpace(0, width * 0.02),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: 'Sign in.',
+                                      style: textTheme.bodyMedium!.copyWith(
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    TextSpan(
+                                      text: ' Already a customer?',
+                                      style: textTheme.bodyMedium,
+                                    )
+                                  ],
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                        commonFuctions.blankSpace(
-                          height * 0.01,
-                          0,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                showCountryPicker(
-                                    context: context,
-                                    onSelect: (val) {
-                                      setState(() {
-                                        currentCountryCode =
-                                            '+${val.phoneCode}';
+                            ],
+                          ),
+                          commonFuctions.blankSpace(
+                            height * 0.01,
+                            0,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              InkWell(
+                                onTap: () {
+                                  showCountryPicker(
+                                      context: context,
+                                      onSelect: (val) {
+                                        setState(() {
+                                          currentCountryCode =
+                                              '+${val.phoneCode}';
+                                        });
                                       });
-                                    });
-                              },
-                              child: Container(
+                                },
+                                child: Container(
+                                  height: height * 0.06,
+                                  width: width * 0.2,
+                                  alignment: Alignment.center,
+                                  decoration: BoxDecoration(
+                                    border: Border.all(color: grey),
+                                    color: greyShade1,
+                                    borderRadius: BorderRadius.circular(
+                                      5,
+                                    ),
+                                  ),
+                                  child: Text(
+                                    currentCountryCode,
+                                    style: textTheme.displayMedium!.copyWith(
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
                                 height: height * 0.06,
-                                width: width * 0.2,
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                  border: Border.all(color: grey),
-                                  color: greyShade1,
-                                  borderRadius: BorderRadius.circular(
-                                    5,
+                                width: width * 0.64,
+                                child: TextFormField(
+                                  controller: mobileController,
+                                  cursorColor: black,
+                                  style: textTheme.displaySmall,
+                                  keyboardType: TextInputType.number,
+                                  decoration: InputDecoration(
+                                    hintText: 'Mobile number',
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(5),
+                                      borderSide: BorderSide(
+                                        color: grey,
+                                      ),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(5),
+                                      borderSide: const BorderSide(
+                                        color: secondaryColor,
+                                      ),
+                                    ),
+                                    disabledBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(5),
+                                      borderSide: BorderSide(
+                                        color: grey,
+                                      ),
+                                    ),
+                                    enabledBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(5),
+                                      borderSide: BorderSide(
+                                        color: grey,
+                                      ),
+                                    ),
                                   ),
                                 ),
-                                child: Text(
-                                  currentCountryCode,
-                                  style: textTheme.displayMedium!.copyWith(
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ),
+                              )
+                            ],
+                          ),
+                          commonFuctions.blankSpace(height * 0.02, 0),
+                          ElevatedButton(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                              minimumSize: Size(width * 88, height * 0.06),
+                              backgroundColor: amber,
                             ),
-                            SizedBox(
-                              height: height * 0.06,
-                              width: width * 0.64,
-                              child: TextFormField(
-                                controller: mobileController,
-                                cursorColor: black,
-                                style: textTheme.displaySmall,
-                                keyboardType: TextInputType.number,
-                                decoration: InputDecoration(
-                                  hintText: 'Mobile number',
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(5),
-                                    borderSide: BorderSide(
-                                      color: grey,
-                                    ),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(5),
-                                    borderSide: const BorderSide(
-                                      color: secondaryColor,
-                                    ),
-                                  ),
-                                  disabledBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(5),
-                                    borderSide: BorderSide(
-                                      color: grey,
-                                    ),
-                                  ),
-                                  enabledBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(5),
-                                    borderSide: BorderSide(
-                                      color: grey,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            )
-                          ],
-                        )
-                      ]),
+                            child:
+                                Text('Continue', style: textTheme.displaySmall),
+                          ),
+                        ],
+                      ),
                     )
                   ],
                 ),
