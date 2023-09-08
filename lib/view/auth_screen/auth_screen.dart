@@ -1,3 +1,4 @@
+
 import 'package:amazon/constants/common_function.dart';
 import 'package:amazon/utils/colors.dart';
 import 'package:country_picker/country_picker.dart';
@@ -36,7 +37,9 @@ class _AuthScreenState extends State<AuthScreen> {
           height: height,
           width: width,
           padding: EdgeInsets.symmetric(
-              horizontal: width * 0.03, vertical: height * 0.03),
+            horizontal: width * 0.03,
+            vertical: height * 0.03,
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -87,7 +90,10 @@ class _AuthScreenState extends State<AuthScreen> {
                                       inLogin ? transparent : secondaryColor),
                             ),
                           ),
-                          commonFuctions.blankSpace(0, width * 0.02),
+                          commonFuctions.blankSpace(
+                            0,
+                            width * 0.02,
+                          ),
                           RichText(
                             text: TextSpan(
                               children: [
@@ -137,7 +143,10 @@ class _AuthScreenState extends State<AuthScreen> {
                                           : transparent),
                                 ),
                               ),
-                              commonFuctions.blankSpace(0, width * 0.02),
+                              commonFuctions.blankSpace(
+                                0,
+                                width * 0.02,
+                              ),
                               RichText(
                                 text: TextSpan(
                                   children: [
@@ -231,7 +240,10 @@ class _AuthScreenState extends State<AuthScreen> {
                               )
                             ],
                           ),
-                          commonFuctions.blankSpace(height * 0.02, 0),
+                          commonFuctions.blankSpace(
+                            height * 0.02,
+                            0,
+                          ),
                           ElevatedButton(
                             onPressed: () {},
                             style: ElevatedButton.styleFrom(
@@ -241,7 +253,10 @@ class _AuthScreenState extends State<AuthScreen> {
                             child:
                                 Text('Continue', style: textTheme.displaySmall),
                           ),
-                          commonFuctions.blankSpace(height * 0.02, 0),
+                          commonFuctions.blankSpace(
+                            height * 0.02,
+                            0,
+                          ),
                           RichText(
                             text: TextSpan(
                               children: [
@@ -265,9 +280,63 @@ class _AuthScreenState extends State<AuthScreen> {
                           ),
                         ],
                       ),
-                    )
+                    ),
                   ],
                 ),
+              ),
+              commonFuctions.blankSpace(
+                height * 0.05,
+                0,
+              ),
+              Column(
+                children: [
+                  Container(
+                    height: 2,
+                    width: width,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [white, greyShade3, white],
+                      ),
+                    ),
+                  ),
+                  commonFuctions.blankSpace(
+                    height * 0.02,
+                    0,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Text(
+                        'Condition of use',
+                        style: textTheme.bodyMedium!.copyWith(
+                          color: blue,
+                        ),
+                      ),
+                      Text(
+                        'Privacy Notice',
+                        style: textTheme.bodyMedium!.copyWith(
+                          color: blue,
+                        ),
+                      ),
+                      Text(
+                        'Help',
+                        style: textTheme.bodyMedium!.copyWith(
+                          color: blue,
+                        ),
+                      )
+                    ],
+                  ),
+                  commonFuctions.blankSpace(
+                    height * 0.01,
+                    0,
+                  ),
+                  Text(
+                    '@ 1996-2023,Amazon.com,Inc or its affiliates',
+                    style: textTheme.labelMedium!.copyWith(
+                      color: grey,
+                    ),
+                  ),
+                ],
               )
             ],
           ),

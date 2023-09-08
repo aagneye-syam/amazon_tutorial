@@ -13,7 +13,7 @@ class Amazon extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: theme,
-      home: AuthScreen(),
+      home: const AuthScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
