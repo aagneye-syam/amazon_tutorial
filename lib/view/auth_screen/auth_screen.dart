@@ -1,4 +1,3 @@
-
 import 'package:amazon/constants/common_function.dart';
 import 'package:amazon/utils/colors.dart';
 import 'package:country_picker/country_picker.dart';
@@ -288,60 +287,79 @@ class _AuthScreenState extends State<AuthScreen> {
                 height * 0.05,
                 0,
               ),
-              Column(
-                children: [
-                  Container(
-                    height: 2,
-                    width: width,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [white, greyShade3, white],
-                      ),
-                    ),
-                  ),
-                  commonFuctions.blankSpace(
-                    height * 0.02,
-                    0,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Text(
-                        'Condition of use',
-                        style: textTheme.bodyMedium!.copyWith(
-                          color: blue,
-                        ),
-                      ),
-                      Text(
-                        'Privacy Notice',
-                        style: textTheme.bodyMedium!.copyWith(
-                          color: blue,
-                        ),
-                      ),
-                      Text(
-                        'Help',
-                        style: textTheme.bodyMedium!.copyWith(
-                          color: blue,
-                        ),
-                      )
-                    ],
-                  ),
-                  commonFuctions.blankSpace(
-                    height * 0.01,
-                    0,
-                  ),
-                  Text(
-                    '@ 1996-2023,Amazon.com,Inc or its affiliates',
-                    style: textTheme.labelMedium!.copyWith(
-                      color: grey,
-                    ),
-                  ),
-                ],
-              )
+              BottomAuthScreenWidget(
+                  width: width, height: height, textTheme: textTheme)
             ],
           ),
         ),
       ),
+    );
+  }
+}
+
+class BottomAuthScreenWidget extends StatelessWidget {
+  const BottomAuthScreenWidget({
+    super.key,
+    required this.width,
+    required this.height,
+    required this.textTheme,
+  });
+
+  final double width;
+  final double height;
+  final TextTheme textTheme;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Container(
+          height: 2,
+          width: width,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [white, greyShade3, white],
+            ),
+          ),
+        ),
+        commonFuctions.blankSpace(
+          height * 0.02,
+          0,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Text(
+              'Condition of use',
+              style: textTheme.bodyMedium!.copyWith(
+                color: blue,
+              ),
+            ),
+            Text(
+              'Privacy Notice',
+              style: textTheme.bodyMedium!.copyWith(
+                color: blue,
+              ),
+            ),
+            Text(
+              'Help',
+              style: textTheme.bodyMedium!.copyWith(
+                color: blue,
+              ),
+            )
+          ],
+        ),
+        commonFuctions.blankSpace(
+          height * 0.01,
+          0,
+        ),
+        Text(
+          '@ 1996-2023,Amazon.com,Inc or its affiliates',
+          style: textTheme.labelMedium!.copyWith(
+            color: grey,
+          ),
+        ),
+      ],
     );
   }
 }
